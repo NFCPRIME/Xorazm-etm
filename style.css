@@ -1,0 +1,398 @@
+/* ==========================================================
+   style.css | Smart kassa by XORAZM ETM
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Onest:wght@400;500;600&display=swap");
+
+/* ---------- RANGLAR: kerak bo'lsa faqat shu yerni o'zgartiring ---------- */
+:root {
+  --red:        #D31B1B;   /* Xorazm ETM qizili */
+  --red-dark:   #A81212;
+  --red-soft:   #FBE7E7;
+  --black:      #0D0D0F;   /* logotip foni */
+  --indigo:     #312E8F;   /* Poscode rangi */
+  --white:      #FFFFFF;
+  --ink:        #17171C;   /* asosiy matn */
+  --muted:      #55555F;   /* ikkinchi darajali matn */
+  --tint:       #F4F4F6;   /* och kulrang fon */
+  --line:       #E2E2E8;   /* chiziqlar */
+
+  --font-head: "Montserrat", "Segoe UI", Arial, sans-serif;
+  --font-body: "Onest", "Segoe UI", Roboto, Arial, sans-serif;
+  --container: 1120px;
+}
+
+/* ---------- Asos ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+ul { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Klaviatura bilan yurganda ko'rinadigan ramka */
+:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; border-radius: 6px; }
+.hero :focus-visible,
+.poscode :focus-visible,
+.stats :focus-visible,
+.footer :focus-visible { outline-color: var(--white); }
+
+.container { width: min(var(--container), 100% - 40px); margin-inline: auto; }
+
+.skip-link {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  background: var(--black); color: var(--white);
+  padding: 10px 16px; border-radius: 8px; text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- Tugmalar ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 24px;
+  border: 2px solid transparent; border-radius: 999px;
+  font: 600 1rem/1 var(--font-body);
+  text-decoration: none; cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--sm { padding: 11px 18px; font-size: .95rem; }
+
+.btn--primary { background: var(--red); color: var(--white); }
+.btn--primary:hover { background: var(--red-dark); }
+
+.btn--dark { background: var(--black); color: var(--white); }
+.btn--dark:hover { background: #2A2A30; }
+
+.btn--light { background: var(--white); color: var(--indigo); }
+.btn--light:hover { background: #ECEBFA; }
+
+.btn--outline { border-color: var(--black); color: var(--black); background: transparent; }
+.btn--outline:hover { background: var(--black); color: var(--white); }
+
+.btn--outline-light { border-color: var(--white); color: var(--white); background: transparent; }
+.btn--outline-light:hover { background: rgba(255, 255, 255, .16); }
+
+/* ---------- Tepa qism ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; min-height: 76px;
+}
+
+.brand { display: flex; flex-direction: column; text-decoration: none; }
+.brand__text {
+  font: 800 .78rem/1.2 var(--font-head);
+  color: var(--red);
+}
+.brand__logo {
+  height: 46px; width: auto;
+  margin-block: -4px;         /* logotip atrofidagi bo'sh joyni kamaytiradi */
+}
+
+.nav { display: flex; align-items: center; gap: 24px; }
+.nav__link {
+  font-weight: 500; font-size: .96rem; text-decoration: none; color: var(--ink);
+}
+.nav__link:hover { color: var(--red); }
+
+/* Telefondagi menyu tugmasi */
+.menu-btn {
+  display: none;
+  width: 46px; height: 46px;
+  border: 2px solid var(--black); border-radius: 12px;
+  background: transparent; cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.menu-btn__bar {
+  display: block; width: 20px; height: 2.5px;
+  background: var(--black); border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.menu-btn[aria-expanded="true"] .menu-btn__bar:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] .menu-btn__bar:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] .menu-btn__bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ---------- Bosh ekran ---------- */
+.hero {
+  background: var(--red);
+  color: var(--white);
+  padding: 72px 0 96px;
+  overflow: hidden;
+}
+.hero__inner {
+  display: grid; grid-template-columns: 1.15fr .85fr;
+  gap: 48px; align-items: center;
+}
+.hero__title {
+  font-size: clamp(2rem, 4.6vw, 3.3rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.hero__lead {
+  font-size: 1.15rem; max-width: 52ch;
+  color: #FFE3E3; margin-bottom: 32px;
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.hero__visual { display: flex; justify-content: center; padding-bottom: 20px; }
+
+/* Kassa cheki */
+.receipt {
+  position: relative;
+  width: min(320px, 100%);
+  padding: 26px 24px 30px;
+  background: var(--white); color: var(--ink);
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: .92rem; line-height: 1.5;
+  transform: rotate(2.5deg);
+  box-shadow: 0 24px 50px rgba(60, 0, 0, .45);
+  animation: print 2.4s steps(18) .3s both;   /* sayt ochilganda chek "chop etiladi" */
+}
+.receipt::after {          /* pastki tishli chekka */
+  content: ""; position: absolute; left: 0; right: 0; bottom: -16px; height: 16px;
+  background:
+    linear-gradient(135deg, var(--white) 50%, transparent 50%) 0 0 / 16px 16px repeat-x,
+    linear-gradient(225deg, var(--white) 50%, transparent 50%) 0 0 / 16px 16px repeat-x;
+}
+@keyframes print {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 -20px 0); }
+}
+.receipt__title { text-align: center; font-weight: 700; font-size: 1.15rem; }
+.receipt__sub   { text-align: center; color: var(--muted); margin-bottom: 12px; }
+.receipt__line  { border: 0; border-top: 2px dashed #B9B9C4; margin: 12px 0; }
+.receipt__row   { display: flex; justify-content: space-between; gap: 12px; }
+.receipt__row--total { font-weight: 700; font-size: 1.1rem; }
+.receipt__barcode {
+  height: 38px; margin: 14px 0 8px;
+  background: repeating-linear-gradient(90deg,
+    var(--black) 0 2px, transparent 2px 4px,
+    var(--black) 4px 5px, transparent 5px 8px,
+    var(--black) 8px 11px, transparent 11px 13px);
+}
+.receipt__note { text-align: center; color: var(--muted); font-size: .85rem; }
+
+/* ---------- Umumiy bo'lim ---------- */
+.section { padding: 80px 0; }
+.section--tint { background: var(--tint); }
+.section__head { max-width: 660px; margin-bottom: 40px; }
+.section__title {
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  font-weight: 800; margin-bottom: 12px;
+}
+.section__lead { color: var(--muted); max-width: 60ch; }
+
+/* ---------- Biz haqimizda ---------- */
+.about { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+.about__text p { color: var(--muted); max-width: 60ch; margin-bottom: 16px; }
+.about__list { display: grid; gap: 12px; margin-top: 24px; }
+.about__item {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 6px 0 6px 18px;
+  border-left: 4px solid var(--red);
+}
+.about__item strong { font-weight: 600; }
+.about__item span { color: var(--muted); font-size: .98rem; }
+.about__logo { display: flex; justify-content: center; }
+.about__logo img {
+  width: min(340px, 100%); border-radius: 50%;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .22);
+}
+
+/* ---------- Mahsulotlar ---------- */
+.product-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line); border-radius: 20px;
+}
+.card__img {
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
+  background: var(--tint);
+}
+.card__body { display: flex; flex-direction: column; gap: 10px; padding: 22px; flex: 1; }
+.card__title { font-size: 1.1rem; font-weight: 700; }
+.card__text { color: var(--muted); font-size: .98rem; flex: 1; }
+.price { font-weight: 700; }
+.price--ask {
+  align-self: flex-start;
+  background: var(--red-soft); color: var(--red-dark);
+  padding: 5px 12px; border-radius: 999px;
+  font-size: .9rem; font-weight: 600;
+}
+.card__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+
+/* ---------- Poscode ---------- */
+.poscode { background: var(--indigo); color: var(--white); padding: 80px 0; }
+.poscode__inner {
+  display: grid; grid-template-columns: .85fr 1.15fr;
+  gap: 56px; align-items: center;
+}
+.poscode__brand {
+  background: var(--white); border-radius: 24px; padding: 28px;
+  display: flex; justify-content: center;
+}
+.poscode__brand img { width: 100%; max-width: 420px; }
+.poscode__info p { color: #DAD9F5; max-width: 56ch; margin-bottom: 20px; }
+.feature-list { display: grid; gap: 10px; margin-bottom: 28px; }
+.feature-list__item { position: relative; padding-left: 34px; }
+.feature-list__item::before {        /* galochka belgisi */
+  content: ""; position: absolute; left: 8px; top: .3em;
+  width: 7px; height: 13px;
+  border: solid var(--white); border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* ---------- Xizmatlar ---------- */
+.service-grid { display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); }
+.service { padding: 6px 0 6px 20px; border-left: 4px solid var(--red); }
+.service__title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.service p { color: var(--muted); font-size: .98rem; }
+
+/* ---------- Raqamlarda ---------- */
+.stats { background: var(--black); color: var(--white); padding: 56px 0; }
+.stats__inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.stat { display: flex; flex-direction: column; gap: 6px; }
+.stat__num {
+  font: 800 clamp(2rem, 4.6vw, 3.2rem)/1.1 var(--font-head);
+}
+.stat__label { color: #BDBDC8; }
+
+/* ---------- Aksiya va yangiliklar ---------- */
+.news-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.news-card {
+  background: var(--white); padding: 24px;
+  border: 1px solid var(--line); border-radius: 18px;
+}
+.news-card__meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px; font-size: .9rem; color: var(--muted);
+}
+.badge {
+  background: var(--red); color: var(--white);
+  padding: 3px 10px; border-radius: 999px;
+  font-size: .82rem; font-weight: 600;
+}
+.news-card__title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+.news-card p { color: var(--muted); font-size: .98rem; }
+
+/* ---------- Savol-javoblar ---------- */
+.faq { display: grid; gap: 12px; max-width: 780px; }
+.faq__item { background: var(--tint); border-radius: 14px; padding: 0 20px; }
+.faq__q {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 18px 0; cursor: pointer; list-style: none; font-weight: 600;
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after {
+  content: "+"; flex: none;
+  font: 500 1.6rem/1 var(--font-body); color: var(--red);
+  transition: transform .2s ease;
+}
+.faq__item[open] .faq__q::after { transform: rotate(45deg); }
+.faq__a { padding-bottom: 18px; color: var(--muted); }
+
+/* ---------- Aloqa ---------- */
+.contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: stretch; }
+.contact__list { display: grid; gap: 18px; margin-bottom: 24px; }
+.contact__row dt { font-size: .9rem; color: var(--muted); }
+.contact__row dd { font-weight: 600; }
+.contact__row a { text-decoration: none; }
+.contact__row a:hover { color: var(--red); }
+.contact__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact__map {
+  min-height: 340px; overflow: hidden;
+  border-radius: 20px; background: var(--line);
+}
+.contact__map iframe { display: block; width: 100%; height: 100%; min-height: 340px; border: 0; }
+
+/* ---------- Pastki qism ---------- */
+.footer { background: var(--black); color: #B5B5C0; padding: 32px 0; font-size: .95rem; }
+.footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.footer__brand { display: flex; align-items: center; gap: 14px; color: var(--white); }
+.footer__brand img { width: 56px; height: 56px; border-radius: 50%; }
+
+/* ---------- Telefondagi pastki qo'ng'iroq paneli ---------- */
+.callbar {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: var(--white); border-top: 1px solid var(--line);
+}
+.callbar .btn { width: 100%; }
+
+/* ==========================================================
+   MOSLASHUVCHANLIK (planshet va telefon)
+   ========================================================== */
+@media (max-width: 1000px) {
+  .nav { gap: 16px; }
+  .nav__link { font-size: .9rem; }
+}
+
+@media (max-width: 900px) {
+  .section, .poscode { padding: 60px 0; }
+  .hero { padding: 48px 0 72px; }
+  .hero__inner,
+  .about,
+  .poscode__inner,
+  .contact { grid-template-columns: 1fr; }
+  .about__logo { order: -1; }
+  .service-grid,
+  .stats__inner { grid-template-columns: 1fr; }
+  .stats__inner { gap: 24px; }
+}
+
+@media (max-width: 860px) {
+  .menu-btn { display: flex; }
+  .nav {
+    display: none;
+    position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: 8px 20px 20px;
+    background: var(--white); border-bottom: 1px solid var(--line);
+  }
+  .nav.is-open { display: flex; }          /* JavaScript shu klassni qo'shadi */
+  .nav__link { font-size: 1rem; padding: 14px 0; border-bottom: 1px solid var(--tint); }
+  .nav .btn { margin-top: 14px; }
+}
+
+@media (max-width: 720px) {
+  .callbar { display: block; }
+  body { padding-bottom: 76px; }
+}
+
+/* Animatsiyani yoqtirmaydiganlar uchun */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
