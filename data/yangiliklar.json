@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "sarlavha": "Yangi mijozlarga o'rnatish bepul",
+      "matn": "Kassa apparat sotib olgan yangi mijozlarga o'rnatish va sozlash xizmati bepul. Shartlarini qo'ng'iroq qilib so'rang.",
+      "sana": "2026-09-15",
+      "aksiya": true
+    },
+    {
+      "sarlavha": "Yangi tarozilar keldi",
+      "matn": "Bozor uchun yangi elektron tarozilar omborimizga keldi. Ko'rish va sinab ko'rish uchun do'konimizga keling.",
+      "sana": "2026-09-01",
+      "aksiya": false
+    }
+  ]
+}
