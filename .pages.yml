@@ -1,0 +1,155 @@
+media:
+  input: images
+  output: /images
+
+content:
+  - name: sayt
+    label: Sayt sozlamalari
+    type: file
+    path: data/sayt.json
+    format: json
+    fields:
+      - name: telefon
+        label: Telefon raqami
+        type: string
+        description: Masalan +998 90 123 45 67
+      - name: telegram
+        label: Telegram silkasi
+        type: string
+        description: Masalan https://t.me/xorazm_etm
+      - name: instagram
+        label: Instagram silkasi
+        type: string
+        description: Masalan https://instagram.com/xorazm_etm
+      - name: manzil
+        label: Manzil
+        type: string
+      - name: xarita
+        label: Xarita uchun manzil
+        type: string
+        description: Google xaritada qidiriladigan manzil
+      - name: ish_vaqti
+        label: Ish vaqti
+        type: string
+      - name: logo_etm
+        label: Smart Kassa logosi
+        type: image
+      - name: logo_poscode
+        label: Poscode logosi
+        type: image
+      - name: hero_sarlavha
+        label: Bosh sahifa sarlavhasi
+        type: string
+      - name: hero_matn
+        label: Bosh sahifa matni
+        type: text
+      - name: haqida_1
+        label: Biz haqimizda (1-abzats)
+        type: text
+      - name: haqida_2
+        label: Biz haqimizda (2-abzats)
+        type: text
+
+  - name: mahsulotlar
+    label: Mahsulotlar
+    type: file
+    path: data/mahsulotlar.json
+    format: json
+    fields:
+      - name: items
+        label: Mahsulotlar ro'yxati
+        type: object
+        list: true
+        fields:
+          - name: nomi
+            label: Nomi
+            type: string
+          - name: tavsif
+            label: Qisqacha tavsif
+            type: text
+          - name: narx
+            label: Narxi
+            type: string
+            description: Bo'sh qoldirsangiz, saytda "Narxini so'rang" chiqadi
+          - name: rasm
+            label: Rasmi
+            type: image
+
+  - name: xizmatlar
+    label: Xizmatlar
+    type: file
+    path: data/xizmatlar.json
+    format: json
+    fields:
+      - name: items
+        label: Xizmatlar ro'yxati
+        type: object
+        list: true
+        fields:
+          - name: nomi
+            label: Nomi
+            type: string
+          - name: matn
+            label: Tavsif
+            type: text
+
+  - name: raqamlar
+    label: Raqamlarda
+    type: file
+    path: data/raqamlar.json
+    format: json
+    fields:
+      - name: items
+        label: Raqamlar
+        type: object
+        list: true
+        fields:
+          - name: son
+            label: Son
+            type: string
+            description: Masalan 500+ yoki 5 yil
+          - name: yozuv
+            label: Izoh
+            type: string
+
+  - name: yangiliklar
+    label: Aksiya va yangiliklar
+    type: file
+    path: data/yangiliklar.json
+    format: json
+    fields:
+      - name: items
+        label: Yangiliklar
+        type: object
+        list: true
+        fields:
+          - name: sarlavha
+            label: Sarlavha
+            type: string
+          - name: matn
+            label: Matn
+            type: text
+          - name: sana
+            label: Sana
+            type: date
+          - name: aksiya
+            label: Bu aksiyami?
+            type: boolean
+
+  - name: savollar
+    label: Savol-javoblar
+    type: file
+    path: data/savollar.json
+    format: json
+    fields:
+      - name: items
+        label: Savollar
+        type: object
+        list: true
+        fields:
+          - name: savol
+            label: Savol
+            type: string
+          - name: javob
+            label: Javob
+            type: text
