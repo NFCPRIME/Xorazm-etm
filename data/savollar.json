@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "savol": "Jihozni o'rnatib berasizlarmi?",
+      "javob": "Ha. Jihozni o'zimiz olib borib o'rnatamiz va sotuvchilaringizga qanday ishlashni ko'rsatamiz."
+    },
+    {
+      "savol": "Poscode dasturi nima qiladi?",
+      "javob": "Poscode sotuvlaringizni, tovar qoldig'ini va kunlik hisobni bir joyda yuritishga yordam beradi."
+    },
+    {
+      "savol": "Kafolat bormi?",
+      "javob": "Ha, mahsulotlar kafolat bilan beriladi. Muddati jihozga qarab farq qiladi, buni sotib olishdan oldin aytamiz."
+    },
+    {
+      "savol": "Buyurtmani qanday beraman?",
+      "javob": "Saytda onlayn buyurtma yo'q. Bizga qo'ng'iroq qiling yoki Telegram, Instagram orqali yozing, qolganini o'zimiz kelishamiz."
+    },
+    {
+      "savol": "Jihoz buzilsa nima qilaman?",
+      "javob": "Bizga xabar bering. Jihozni tekshirib, ta'mirlab beramiz."
+    }
+  ]
+}
