@@ -2,27 +2,20 @@
   "items": [
     {
       "nomi": "Kassa apparat + Terminal",
-      "tavsif": "Sotuv chekini chiqaradi va plastik karta bilan to'lovni qabul qiladi. Do'kon va kafe uchun mos.",
-      "narx": "",
-      "rasm": ""
+      "tavsif": "Sotuv chekini chiqaradi va plastik karta bilan to'lovni qabul qiladi. Do'kon va kafe uchun mos."
     },
     {
       "nomi": "Valyuta tekshirgich",
-      "tavsif": "Pulning haqiqiyligini bir necha soniyada tekshiradi. Soxta pul olib qo'yishdan saqlaydi.",
-      "narx": "",
-      "rasm": ""
+      "tavsif": "Pulning haqiqiyligini bir necha soniyada tekshiradi. Soxta pul olib qo'yishdan saqlaydi."
     },
     {
       "nomi": "Pul sanagich mashina",
-      "tavsif": "Pul dastasini tez va xatosiz sanaydi. Kassa yopilganda vaqtingizni tejaydi.",
-      "narx": "",
-      "rasm": ""
+      "tavsif": "Pul dastasini tez va xatosiz sanaydi. Kassa yopilganda vaqtingizni tejaydi."
     },
     {
       "nomi": "Bozor tarozilari",
-      "tavsif": "Bozor va do'konda ishlatiladigan elektron tarozilar. Qaysi biri sizga mosligini maslahat beramiz.",
-      "narx": "",
-      "rasm": ""
-    }
+      "tavsif": "Bozor va do'konda ishlatiladigan elektron tarozilar. Qaysi biri sizga mosligini maslahat beramiz."
+    },
+    {}
   ]
 }
