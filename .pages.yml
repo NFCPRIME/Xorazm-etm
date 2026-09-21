@@ -14,13 +14,17 @@ content:
         type: string
         description: Masalan +998 90 123 45 67
       - name: telegram
-        label: Telegram silkasi
+        label: Telegram silkasi (yozish uchun)
         type: string
-        description: Masalan https://t.me/xorazm_etm
+        description: Mijoz sizga yozadigan profil, masalan https://t.me/sizning_nomingiz
+      - name: telegram_kanal
+        label: Telegram kanal silkasi
+        type: string
+        description: Masalan https://t.me/kanal_nomi
       - name: instagram
         label: Instagram silkasi
         type: string
-        description: Masalan https://instagram.com/xorazm_etm
+        description: Masalan https://instagram.com/xorazm_etm_
       - name: manzil
         label: Manzil
         type: string
